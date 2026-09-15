@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>GMAT Team Challenge — FIC</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="gtc-root"></div>
+
+    <!-- All scripts use `defer` and stay in this exact order: the app's own
+         (local, fast) files run first and the app is fully usable in DEMO
+         mode the moment they finish — it never waits on the network. The
+         Firebase SDK loads last; if a school network blocks or is slow to
+         reach gstatic.com, that only delays FIREBASE mode (store-firebase.js
+         detects a missing `firebase` global and fails with a clear message)
+         and never blocks the rest of the page. -->
+    <script src="lib/team-formation.js" defer></script>
+    <script src="lib/gmat-questions.js" defer></script>
+    <script src="lib/scoring.js" defer></script>
+    <script src="lib/store-demo.js" defer></script>
+    <script src="lib/store-firebase.js" defer></script>
+    <script src="lib/store.js" defer></script>
+
+    <script src="config.js" defer></script>
+    <script src="app.js" defer></script>
+
+    <!-- Firebase Web SDK (compat build — no bundler needed). Only used when
+         config.js sets BACKEND_MODE = "firebase". Loaded last and deferred
+         so a slow/blocked connection to it never delays the app itself. -->
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js" defer></script>
+  </body>
+</html>
